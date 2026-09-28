@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Cassie Yao | Human Factors & HCI</title>
+
+  <style>
+
+    /* =========================
+       BASIC SETTINGS
+    ========================== */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #1f1f1f;
+      background: #fafafa;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+
+    /* =========================
+       NAVIGATION
+    ========================== */
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(250, 250, 250, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e5e5e5;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      width: 90%;
+      margin: auto;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      height: 72px;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.5;
+    }
+
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+      min-height: 75vh;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      padding: 100px 0;
+    }
+
+    .eyebrow {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #777;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 8vw, 88px);
+      line-height: 1.05;
+
+      max-width: 850px;
+
+      margin-bottom: 28px;
+    }
+
+    .hero-description {
+      max-width: 650px;
+      font-size: 20px;
+      color: #555;
+    }
+
+    .hero-button {
+      margin-top: 35px;
+
+      display: inline-block;
+
+      padding: 12px 20px;
+
+      border: 1px solid #222;
+      border-radius: 100px;
+
+      width: fit-content;
+
+      transition: 0.2s;
+    }
+
+    .hero-button:hover {
+      background: #222;
+      color: white;
+    }
+
+
+    /* =========================
+       SECTIONS
+    ========================== */
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      font-size: 36px;
+      margin-bottom: 50px;
+    }
+
+
+    /* =========================
+       PROJECTS
+    ========================== */
+
+    .projects {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .project-card {
+      background: white;
+
+      border: 1px solid #e3e3e3;
+      border-radius: 20px;
+
+      overflow: hidden;
+
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+
+      min-height: 350px;
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+
+      box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.07);
+    }
+
+    .project-image {
+      background: #eaeaea;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      color: #888;
+      font-size: 14px;
+    }
+
+    .project-content {
+      padding: 45px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .project-number {
+      font-size: 13px;
+      color: #999;
+      margin-bottom: 20px;
+    }
+
+    .project-content h3 {
+      font-size: 30px;
+      margin-bottom: 16px;
+    }
+
+    .project-content p {
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+
+      margin-bottom: 25px;
+    }
+
+    .tag {
+      font-size: 12px;
+
+      background: #f0f0f0;
+
+      padding: 6px 10px;
+
+      border-radius: 100px;
+    }
+
+    .project-link {
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .project-link:hover {
+      opacity: 0.5;
+    }
+
+
+    /* =========================
+       ABOUT
+    ========================== */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 80px;
+    }
+
+    .about-grid h2 {
+      font-size: 36px;
+    }
+
+    .about-text {
+      font-size: 18px;
+      color: #555;
+    }
+
+    .about-text p {
+      margin-bottom: 20px;
+    }
+
+
+    /* =========================
+       CONTACT
+    ========================== */
+
+    .contact {
+      border-top: 1px solid #ddd;
+    }
+
+    .contact h2 {
+      font-size: clamp(40px, 6vw, 70px);
+      margin-bottom: 25px;
+    }
+
+    .contact p {
+      color: #666;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .contact-links a {
+      border-bottom: 1px solid #222;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+      padding: 40px 0;
+
+      border-top: 1px solid #ddd;
+
+      font-size: 13px;
+      color: #777;
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media (max-width: 750px) {
+
+      .nav-links {
+        gap: 14px;
+      }
+
+      .hero {
+        min-height: 65vh;
+      }
+
+      .project-card {
+        grid-template-columns: 1fr;
+      }
+
+      .project-image {
+        min-height: 250px;
+      }
+
+      .project-content {
+        padding: 30px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+
+<body>
+
+
+  <!-- =========================
+       NAVIGATION
+  ========================== -->
+
+  <nav>
+
+    <div class="nav-container">
+
+      <a href="#" class="logo">
+        Cassie Yao
+      </a>
+
+      <div class="nav-links">
+
+        <a href="#work">Work</a>
+
+        <a href="#about">About</a>
+
+        <a href="#contact">Contact</a>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+
+
+  <main class="container">
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero">
+
+      <p class="eyebrow">
+        Human Factors × HCI
+      </p>
+
+      <h1>
+        Designing technology around how people think and behave.
+      </h1>
+
+      <p class="hero-description">
+
+        Hi, I'm Cassie — a Human-Computer Interaction and
+        Human Factors graduate student interested in
+        research, usability, and human-centered technology.
+
+      </p>
+
+      <a href="#work" class="hero-button">
+        View my work ↓
+      </a>
+
+    </section>
+
+
+
+    <!-- =========================
+         WORK
+    ========================== -->
+
+    <section id="work">
+
+      <h2 class="section-title">
+        Selected Work
+      </h2>
+
+
+      <div class="projects">
+
+
+        <!-- PROJECT 1 -->
+
+        <article class="project-card">
+
+          <div class="project-image">
+            Project image coming soon
+          </div>
+
+          <div class="project-content">
+
+            <p class="project-number">
+              01
+            </p>
+
+            <h3>
+              Progress Tracking
+            </h3>
+
+            <p>
+              Exploring how a reflection-centered interface
+              could help people recognize everyday progress
+              rather than focusing only on unfinished work.
+            </p>
+
+            <div class="tags">
+
+              <span class="tag">
+                UX Research
+              </span>
+
+              <span class="tag">
+                Interaction Design
+              </span>
+
+              <span class="tag">
+                Prototyping
+              </span>
+
+            </div>
+
+            <a href="#" class="project-link">
+              View case study →
+            </a>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- PROJECT 2 -->
+
+        <article class="project-card">
+
+          <div class="project-image">
+            Project image coming soon
+          </div>
+
+          <div class="project-content">
+
+            <p class="project-number">
+              02
+            </p>
+
+            <h3>
+              Assistive Hanger
+            </h3>
+
+            <p>
+              Designing an assistive product for users with
+              limited upper-body mobility through iterative
+              CAD modeling and prototyping.
+            </p>
+
+            <div class="tags">
+
+              <span class="tag">
+                Human Factors
+              </span>
+
+              <span class="tag">
+                CAD
+              </span>
+
+              <span class="tag">
+                Prototyping
+              </span>
+
+            </div>
+
+            <a href="#" class="project-link">
+              View case study →
+            </a>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- PROJECT 3 -->
+
+        <article class="project-card">
+
+          <div class="project-image">
+            Project image coming soon
+          </div>
+
+          <div class="project-content">
+
+            <p class="project-number">
+              03
+            </p>
+
+            <h3>
+              Modeling Visual Search
+            </h3>
+
+            <p>
+              Using cognitive modeling and Python to explore
+              how highlighting information changes expected
+              search performance.
+            </p>
+
+            <div class="tags">
+
+              <span class="tag">
+                Cognitive Modeling
+              </span>
+
+              <span class="tag">
+                Python
+              </span>
+
+              <span class="tag">
+                Human Performance
+              </span>
+
+            </div>
+
+            <a href="#" class="project-link">
+              View case study →
+            </a>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section id="about">
+
+      <div class="about-grid">
+
+        <div>
+
+          <p class="eyebrow">
+            About
+          </p>
+
+          <h2>
+            Research meets design.
+          </h2>
+
+        </div>
+
+
+        <div class="about-text">
+
+          <p>
+
+            I'm currently pursuing a master's degree in
+            Human-Computer Interaction and Human Factors
+            at Rice University.
+
+          </p>
+
+          <p>
+
+            My background in psychology, cognition, and
+            research shapes how I approach design:
+            understanding how people perceive information,
+            make decisions, and interact with technology.
+
+          </p>
+
+          <p>
+
+            I'm especially interested in human factors,
+            usability research, safety-critical systems,
+            healthcare, and emerging technologies.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section id="contact" class="contact">
+
+      <p class="eyebrow">
+        Contact
+      </p>
+
+      <h2>
+        Let's connect.
+      </h2>
+
+      <p>
+        I'm currently exploring Human Factors,
+        HCI, and UX research opportunities.
+      </p>
+
+
+      <div class="contact-links">
+
+        <a href="mailto:your-email@example.com">
+          Email
+        </a>
+
+        <a href="#">
+          LinkedIn
+        </a>
+
+        <a href="#">
+          Resume
+        </a>
+
+        <a href="#">
+          GitHub
+        </a>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    <div class="container">
+
+      © 2026 Cassie Yao
+
+    </div>
+
+  </footer>
+
+
+</body>
+
+</html>
